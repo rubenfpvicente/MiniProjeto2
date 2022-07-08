@@ -24,23 +24,105 @@ body {
 .grid-3-colunas{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
+    grid-gap: 2rem;
     margin: 0 auto;
 }
 
 // ESTILOS ESPECÍFICOS
 
-.inicio {
-    .logo {
-        img {
-            position: absolute;
-            padding: 1.5rem;
-        }
-    }
-    .grid-3-colunas {
-        background-color: $amarelo;
-        padding: 2rem;
-        border-radius: 2rem;
+.logo {
+    img {
+        position: absolute;
+        padding: 1.5rem;
     }
 }
 
+.inicio {
+    .categoria{
+        background-color: white;
+        border-radius: 1.5rem;
+        width: 20rem;
+        height: 20rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        cursor: pointer;
+        transition: 0.6s ease-in-out;
+        box-shadow: 5px 5px 7px 1px rgba($color: #000000, $alpha: 0.30);
+        .img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .titulo-categoria {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            h3 {
+                font-family: $poppins;
+                font-weight: 800;
+            }
+        }
+        .icon{
+            width: 6.25rem;
+            height: 6.25rem;
+            background-color: $amarelo;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img{
+                width: 3.1rem;
+                height: 3.1rem;
+            }
+        }
+        &:hover {
+            background-color: $amarelo;
+            color: white;
+        }
+    }
+}
+
+.lista {
+    background-color: white;
+    color: $preto;
+    font-family: $lato;
+    border-radius: 1.5rem;
+    width: 20rem;
+    height: 30rem;
+    padding: 1rem;
+    box-shadow: 5px 5px 7px 1px rgba($color: #000000, $alpha: 0.30);
+}
+
+.pagamento {
+    background-color: $amarelo;
+    border-radius: 1.5rem;
+    width: 400px;
+    height: 126px;
+    color: white;
+    font-family: $poppins;
+    padding: 1.3rem;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 2rem;
+
+    .preco-pagar{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 0.5rem;
+        font-weight: 700;
+        font-size: 38px;
+    }
+
+    .btn-pagar {
+        background-color: $preto;
+        border-radius: 1rem;
+        width: 120px;
+        height: 65px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 18px;
+    }
+}
