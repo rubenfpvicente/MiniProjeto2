@@ -48,6 +48,16 @@ header{
         font-size: 0.9rem;
         margin: 1rem;
     }
+    .path{
+        display: flex;
+        img{
+            transform: rotate(180deg);
+            margin-right: 1rem;
+        }
+        .antigo{
+            color: $cinza;
+        }
+    }
 }
 
 .categoria{
@@ -94,6 +104,43 @@ header{
     &:hover {
         background-color: $amarelo;
         color: white;
+    }
+
+    .img-item{
+        max-width: 14rem;
+        max-height: 10rem;
+        margin-top: 1rem;
+    }
+    
+    .info-item{
+        width: 18rem;
+        height: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        
+        h3 {
+            font-family: $poppins;
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+        img{
+            background-color: $amarelo;
+            border-radius: .75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: .75rem;
+        }
+    }
+    .titulo-item{
+        display: flex; 
+        align-self:  flex-start;
+        flex-direction: column;
+        p{
+            font-family: $lato;
+            font-size: 1rem;
+        }
     }
 }
 
@@ -150,30 +197,12 @@ header{
 
 .comidas{
     display: none; 
-    .categoria{
-        .imagem{
-            width: 14rem;
-            height: auto;
+}
 
-        }
-        .titulo-categoria{
-            height: 5rem;
-            img{
-                // width: 2rem;
-                // height: 2rem;
-                background-color: $amarelo;
-                border-radius: .75rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: .75rem;
-            }
-        }
-        .titulo-item{
-            display: flex; 
-            align-self:  flex-start;
-            margin-left: 1.9rem;
-            margin-bottom: -3rem;
-        }
-    }    
+.bebidas{
+    display: none;
+}
+
+.cafetaria{
+    display: none;
 }

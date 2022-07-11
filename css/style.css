@@ -436,6 +436,16 @@ header .logo img {
   font-size: 0.9rem;
   margin: 1rem;
 }
+.container-selecao .path {
+  display: flex;
+}
+.container-selecao .path img {
+  transform: rotate(180deg);
+  margin-right: 1rem;
+}
+.container-selecao .path .antigo {
+  color: rgba(51, 53, 51, 0.29);
+}
 
 .categoria {
   background-color: white;
@@ -482,6 +492,40 @@ header .logo img {
 .categoria:hover {
   background-color: #FFC301;
   color: white;
+}
+.categoria .img-item {
+  max-width: 14rem;
+  max-height: 10rem;
+  margin-top: 1rem;
+}
+.categoria .info-item {
+  width: 18rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.categoria .info-item h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+.categoria .info-item img {
+  background-color: #FFC301;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+}
+.categoria .titulo-item {
+  display: flex;
+  align-self: flex-start;
+  flex-direction: column;
+}
+.categoria .titulo-item p {
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
 }
 
 .lista {
@@ -534,24 +578,11 @@ header .logo img {
 .comidas {
   display: none;
 }
-.comidas .categoria .imagem {
-  width: 14rem;
-  height: auto;
+
+.bebidas {
+  display: none;
 }
-.comidas .categoria .titulo-categoria {
-  height: 5rem;
-}
-.comidas .categoria .titulo-categoria img {
-  background-color: #FFC301;
-  border-radius: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem;
-}
-.comidas .categoria .titulo-item {
-  display: flex;
-  align-self: flex-start;
-  margin-left: 1.9rem;
-  margin-bottom: -3rem;
+
+.cafetaria {
+  display: none;
 }/*# sourceMappingURL=style.css.map */
