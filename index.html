@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,18 +8,23 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header class="logo">
         <img src="img/logo.svg" alt="">
     </header>
-    
+
+    <div class="filtro"></div>
+
     <section class="inicio">
-        <div class="anterior"></div>
-        <div class="categorias"></div>
-        <div class="cat-atual"></div>
+        <div class="path">
+            <button class="btn-back"><img src="img/arrow_left.svg" alt=""></button>
+            <h2 class="antigo">Categorias</h2>
+            <h2 class="atual">Comidas</h2>
+            <h2 class="produtos">Lista de produtos</h2>
+        </div>
         <div class="grid-2-colunas">
             <div class="container-selecao menu">
-                <h2>Categorias</h2>
                 <div class="grid-3-colunas">
                     <div class="categoria btn-comida">
                         <div class="icon">
@@ -47,7 +53,7 @@
                             <button class="btn-direita"><img src="img/arrow_right.svg" alt=""></button>
                         </div>
                     </div>
-                    <div class="categoria">
+                    <div class="categoria btn-sandes">
                         <div class="icon">
                             <img src="img/Sandes.svg" alt="">
                         </div>
@@ -56,7 +62,7 @@
                             <button class="btn-direita"><img src="img/arrow_right.svg" alt=""></button>
                         </div>
                     </div>
-                    <div class="categoria">
+                    <div class="categoria btn-alcoolicas">
                         <div class="icon">
                             <img src="img/Alcoolicas.svg" alt="">
                         </div>
@@ -65,7 +71,7 @@
                             <button class="btn-direita"><img src="img/arrow_right.svg" alt=""></button>
                         </div>
                     </div>
-                    <div class="categoria">
+                    <div class="categoria btn-sobremesas">
                         <div class="icon">
                             <img src="img/Sobremesas.svg" alt="">
                         </div>
@@ -76,130 +82,86 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="container-pagamento">
-                <h2>Lista de produtos</h2>
-                <div class="lista">
-                    <h3>Nenhum produto selecionado</h3>
-                </div>
-                <div class="pagamento">
-                    <h3>total</h3>
-                    <div class="preco-pagar">
-                        <div class="preco-pay">0.00€</div>
-                        <button class="btn-pagar">Pagar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-    </section>
+            <div class="container-selecao comidas">
+                <div class="grid-3-colunas">
+                    <div class="categoria abrir-modal">
+                        <img src="img/comidas/Hamburger.svg" alt="" class="img-item">
+                        <div class="info-item">
+                            <div class="titulo-item">
+                                <p>Hamburger</p><br>
+                                <h3>6,50€</h3>
+                            </div>
+                            <button>
+                                <img src="img/plus.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="categoria abrir-modal">
+                        <img src="img/comidas/Cachorro.svg" alt="" class="img-item">
+                        <div class="info-item">
+                            <div class="titulo-item">
+                                <p>Cachorro</p><br>
+                                <h3>4,50€</h3>
+                            </div>
+                            <button>
+                                <img src="img/plus.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="categoria abrir-modal">
+                        <img src="img/comidas/Salada.svg" alt="" class="img-item">
+                        <div class="info-item">
+                            <div class="titulo-item">
+                                <p>Salada</p><br>
+                                <h3>4,00€</h3>
+                            </div>
+                            <button>
+                                <img src="img/plus.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="categoria abrir-modal">
+                        <img src="img/comidas/Bife.svg" alt="" class="img-item">
+                        <div class="info-item">
+                            <div class="titulo-item">
+                                <p>Bife</p><br>
+                                <h3>10,00€</h3>
+                            </div>
+                            <button>
+                                <img src="img/plus.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="categoria abrir-modal">
+                        <img src="img/comidas/Lasanha.svg" alt="" class="img-item">
+                        <div class="info-item">
+                            <div class="titulo-item">
+                                <p>Lasanha</p><br>
+                                <h3>8,00€</h3>
+                            </div>
+                            <button>
+                                <img src="img/plus.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="categoria abrir-modal">
+                        <img src="img/comidas/Pizza.svg" alt="" class="img-item">
+                        <div class="info-item">
+                            <div class="titulo-item">
+                                <p>Pizza</p><br>
+                                <h3>12,00€</h3>
+                            </div>
+                            <button>
+                                <img src="img/plus.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <section class="comidas">
-        <div class="grid-2-colunas">
-        <div class="container-selecao">
-            <div class="path">
-                <button class="btn-back"><img src="img/arrow_left.svg" alt=""></button>
-                <h2 class="antigo">Categorias</h2>
-                <h2 class="atual">Comidas</h2>
-            </div>
-            <div class="grid-3-colunas">
-                <div class="categoria">
-                    <img src="img/comidas/Hamburger.svg" alt="" class="img-item">
-                    <div class="info-item">
-                        <div class="titulo-item">
-                            <p>Hamburger</p><br>
-                            <h3>6,50€</h3>
-                        </div>
-                        <button>
-                            <img src="img/plus.svg" alt="">
-                        </button>
-                    </div>
-                </div>
-                <div class="categoria">
-                    <img src="img/comidas/Cachorro.svg" alt="" class="img-item">
-                    <div class="info-item">
-                        <div class="titulo-item">
-                            <p>Cachorro</p><br>
-                            <h3>4,50€</h3>
-                        </div>
-                        <button>
-                            <img src="img/plus.svg" alt="">
-                        </button>
-                    </div>
-                </div>
-                <div class="categoria">
-                    <img src="img/comidas/Salada.svg" alt="" class="img-item">
-                    <div class="info-item">
-                        <div class="titulo-item">
-                            <p>Salada</p><br>
-                            <h3>4,00€</h3>
-                        </div>
-                        <button>
-                            <img src="img/plus.svg" alt="">
-                        </button>
-                    </div>
-                </div>
-                <div class="categoria">
-                    <img src="img/comidas/Bife.svg" alt="" class="img-item">
-                    <div class="info-item">
-                        <div class="titulo-item">
-                            <p>Bife</p><br>
-                            <h3>10,00€</h3>
-                        </div>
-                        <button>
-                            <img src="img/plus.svg" alt="">
-                        </button>
-                    </div>
-                </div>
-                <div class="categoria">
-                    <img src="img/comidas/Lasanha.svg" alt="" class="img-item">
-                    <div class="info-item">
-                        <div class="titulo-item">
-                            <p>Lasanha</p><br>
-                            <h3>8,00€</h3>
-                        </div>
-                        <button>
-                            <img src="img/plus.svg" alt="">
-                        </button>
-                    </div>
-                </div>
-                <div class="categoria">
-                    <img src="img/comidas/Pizza.svg" alt="" class="img-item">
-                    <div class="info-item">
-                        <div class="titulo-item">
-                            <p>Pizza</p><br>
-                            <h3>12,00€</h3>
-                        </div>
-                        <button>
-                            <img src="img/plus.svg" alt="">
-                        </button>
-                    </div>
-                </div> 
-            </div>
-        </div>
-        <div class="container-pagamento">
-            <h2>Lista de produtos</h2>
-            <div class="lista">
-                <h3>Nenhum produto selecionado</h3>
-            </div>
-            <div class="pagamento">
-                <h3>total</h3>
-                <div class="preco-pagar">
-                    <div class="preco-pay">0.00€</div>
-                    <button class="btn-pagar">Pagar</button>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="container-selecao bebidas">
 
-    <section class="bebidas">
-        <div class="grid-2-colunas">
-            <div class="container-selecao">
-                <div class="path">
-                    <button class="btn-back"><img src="img/arrow_left.svg" alt=""></button>
-                    <h2 class="antigo">Categorias</h2>
-                    <h2 class="atual">Bebidas</h2>
-                </div>
                 <div class="grid-3-colunas">
                     <div class="categoria">
                         <img src="img/bebidas/agua.svg" alt="" class="img-item">
@@ -263,67 +225,184 @@
                     </div>
                 </div>
             </div>
-            <div class="container-pagamento">
-                <h2>Lista de produtos</h2>
-                <div class="lista">
-                    <h3>Nenhum produto selecionado</h3>
-                </div>
-                <div class="pagamento">
-                    <h3>total</h3>
-                    <div class="preco-pagar">
-                        <div class="preco-pay">0.00€</div>
-                        <button class="btn-pagar">Pagar</button>
-                    </div>
-                </div>
-            </div>
-    </section>
 
-    <section class="cafetaria">
-        <div class="grid-2-colunas">
-            <div class="container-selecao">
-                <div class="path">
-                    <button class="btn-back"><img src="img/arrow_left.svg" alt=""></button>
-                    <h2 class="antigo">Categorias</h2>
-                    <h2 class="atual">Comidas</h2>
-                </div>
+            <div class="container-selecao cafetaria">
+
                 <div class="grid-3-colunas">
                     <div class="categoria">
                         <img src="img/cafetaria/cafe.svg" alt="" class="img-item">
-                        <div class="titulo-item">
-                            <h2>Café</h2>
-                        </div>
-                        <div class="titulo-categoria">
-                            <h3>0,70€</h3>
-                            <button><img src="img/plus.svg" alt=""></button>
+                        <div class="info-item">
+                            <div class="titulo-item">
+                                <p>Café</p><br>
+                                <h3>0,70€</h3>
+                            </div>
+                            <button>
+                                <img src="img/plus.svg" alt="">
+                            </button>
                         </div>
                     </div>
                     <div class="categoria">
                         <img src="img/cafetaria/galao.svg" alt="" class="img-item">
-                        <div class="titulo-item">
-                            <h2>Galão</h2>
-                        </div>
-                        <div class="titulo-categoria">
-                            <h3>0,80€</h3>
-                            <button><img src="img/plus.svg" alt=""></button>
+                        <div class="info-item">
+                            <div class="titulo-item">
+                                <p>Galão</p><br>
+                                <h3>0,80€</h3>
+                            </div>
+                            <button>
+                                <img src="img/plus.svg" alt="">
+                            </button>
                         </div>
                     </div>
                     <div class="categoria">
                         <img src="img/cafetaria/cappuccino.svg" alt="" class="img-item">
-                        <div class="titulo-item">
-                            <h2>Cappuccino</h2>
-                        </div>
-                        <div class="titulo-categoria">
-                            <h3>1,20€</h3>
-                            <button><img src="img/plus.svg" alt=""></button>
+                        <div class="info-item">
+                            <div class="titulo-item">
+                                <p>Cappuccino</p><br>
+                                <h3>1,20€</h3>
+                            </div>
+                            <button>
+                                <img src="img/plus.svg" alt="">
+                            </button>
                         </div>
                     </div>
-                    
-                    </div>
+
+                </div>
             </div>
+
+            <div class="container-selecao sandes">
+
+                <div class="grid-3-colunas">
+                    <div class="categoria">
+                        <img src="img/sandes/tosta.svg" alt="" class="img-item">
+                        <div class="info-item">
+                            <div class="titulo-item">
+                                <p>Tosta Mista</p><br>
+                                <h3>2,50€</h3>
+                            </div>
+                            <button>
+                                <img src="img/plus.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="categoria">
+                        <img src="img/sandes/sandes_atum.svg" alt="" class="img-item">
+                        <div class="info-item">
+                            <div class="titulo-item">
+                                <p>Sandes de Atum</p><br>
+                                <h3>3,00€</h3>
+                            </div>
+                            <button>
+                                <img src="img/plus.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="categoria">
+                        <img src="img/sandes/sandes_frango.svg" alt="" class="img-item">
+                        <div class="info-item">
+                            <div class="titulo-item">
+                                <p>Sandes de Frango</p><br>
+                                <h3>3,00€</h3>
+                            </div>
+                            <button>
+                                <img src="img/plus.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container-selecao alcoolicas">
+
+                <div class="grid-3-colunas">
+                    <div class="categoria">
+                        <img src="img/alcoolicas/cerveja.svg" alt="" class="img-item">
+                        <div class="info-item">
+                            <div class="titulo-item">
+                                <p>Cerveja</p><br>
+                                <h3>1,00€</h3>
+                            </div>
+                            <button>
+                                <img src="img/plus.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="categoria">
+                        <img src="img/alcoolicas/vinho.svg" alt="" class="img-item">
+                        <div class="info-item">
+                            <div class="titulo-item">
+                                <p>Copo de Vinho</p><br>
+                                <h3>1,50€</h3>
+                            </div>
+                            <button>
+                                <img src="img/plus.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="categoria">
+                        <img src="img/alcoolicas/cidra.svg" alt="" class="img-item">
+                        <div class="info-item">
+                            <div class="titulo-item">
+                                <p>Cidra</p><br>
+                                <h3>1,20€</h3>
+                            </div>
+                            <button>
+                                <img src="img/plus.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-2-colunas sobremesas">
+                <div class="container-selecao">
+
+                    <div class="grid-3-colunas">
+                        <div class="categoria">
+                            <img src="img/sobremesas/gelado.svg" alt="" class="img-item">
+                            <div class="info-item">
+                                <div class="titulo-item">
+                                    <p>Gelado</p><br>
+                                    <h3>1,50€</h3>
+                                </div>
+                                <button>
+                                    <img src="img/plus.svg" alt="">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="categoria">
+                            <img src="img/sobremesas/mousse.svg" alt="" class="img-item">
+                            <div class="info-item">
+                                <div class="titulo-item">
+                                    <p>Mousse de chocolate</p><br>
+                                    <h3>3,00€</h3>
+                                </div>
+                                <button>
+                                    <img src="img/plus.svg" alt="">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="categoria">
+                            <img src="img/sobremesas/bolo.svg" alt="" class="img-item">
+                            <div class="info-item">
+                                <div class="titulo-item">
+                                    <p>Bolo de chocolate</p><br>
+                                    <h3>3,20€</h3>
+                                </div>
+                                <button>
+                                    <img src="img/plus.svg" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="container-pagamento">
-                <h2>Lista de produtos</h2>
                 <div class="lista">
-                    <h3>Nenhum produto selecionado</h3>
+                    <h3 class="carrinho-vazio">Nenhum produto selecionado</h3>
+                    <div class="produtos-carrinho">
+                    </div>
                 </div>
                 <div class="pagamento">
                     <h3>total</h3>
@@ -336,18 +415,173 @@
         </div>
     </section>
 
-    <section class="sandes">
+    <div class="modal">
+        <div class="img">
+            <img src="img/Comidas/Hamburger.svg" alt="">
+        </div>
+        <div class="cont_quantity">
+            <div class="content">
+                <h4 class="nome-produto">Hamburger</h4>
+                <h3><span class="preco-produto">6,50</span>€</h3>
+            </div>
+            <div class="quantity">
+                <h5 class="quantidade-produto">Quantidade</h5>
+                <div class="quantidade">
+                    <button class="btn-minus" id="btn-minus"><img src="img/minus.svg" alt=""></button>
+                    <div class="valor-quantidade">1</div>
+                    <button class="btn-plus"><img src="img/plus.svg" alt=""></button>
+                </div>
+            </div>
+        </div>
+        <div class="adicionar">
+            <button class="add">Adicionar</button>
+        </div>
+        <button class="fechar-modal">
+            <img src="img/close.svg" alt="">
+        </button>
+    </div>
 
-    </section>
+    <div class="modal">
+        <div class="img">
+            <div class="circulo-laranja">
+                <img src="img/Comidas/Cachorro.svg" alt="">
+            </div>
+        </div>
+        <div class="cont_quantity">
+            <div class="content">
+                <h4>Cachorro</h4>
+                <h3>4,50€</h3>
+            </div>
+            <div class="quantity">
+                <h5>Quantidade</h5>
+                <div class="quantidade">
+                    <button class="btn-minus"><img src="img/minus.svg" alt=""></button>
+                    <div class="valor-quantidade">1</div>
+                    <button class="btn-plus"><img src="img/plus.svg" alt=""></button>
+                </div>
+            </div>
+        </div>
+        <div class="adicionar">
+            <button class="add">Adicionar</button>
+        </div>
+        <button class="fechar-modal">
+            <img src="img/close.svg" alt="">
+        </button>
+    </div>
 
-    <section class="alcoolicas">
+    <!-- <div class="modal">
+        <div class="img">
+            <div class="circulo-laranja">
+                <img src="img/Comidas/Salada.svg" alt="">
+            </div>
+        </div>
+        <div class="cont_quantity">
+            <div class="content">
+                <h4>Salada</h4>
+                <h3>4,50€</h3>
+            </div>
+            <div class="quantity">
+                <h5>Quantidade</h5>
+                <div class="quantidade">
+                <button class="btn-minus"><img src="img/minus.svg" alt=""></button>
+                <div class="valor-quantidade">1</div>
+                <button class="btn-plus"><img src="img/plus.svg" alt=""></button>
+                </div>
+            </div>
+        </div>
+        <div class="adicionar">
+            <button class="add">Adicionar</button>
+        </div>
+        <button class="fechar-modal">
+            <img src="img/close.svg" alt="">
+        </button>
+    </div> -->
 
-    </section>
-    
-    <section class="sobremesas">
+    <!-- <div class="modal">
+        <div class="img">
+            <div class="circulo-laranja">
+                <img src="img/Comidas/Bife.svg" alt="">
+            </div>
+        </div>
+        <div class="cont_quantity">
+            <div class="content">
+                <h4>Bife</h4>
+                <h3>10,00€</h3>
+            </div>
+            <div class="quantity">
+                <h5>Quantidade</h5>
+                <div class="quantidade">
+                <button class="btn-minus"><img src="img/minus.svg" alt=""></button>
+                <div class="valor-quantidade">1</div>
+                <button class="btn-plus"><img src="img/plus.svg" alt=""></button>
+                </div>
+            </div>
+        </div>
+        <div class="adicionar">
+            <button class="add">Adicionar</button>
+        </div>
+        <button class="fechar-modal">
+            <img src="img/close.svg" alt="">
+        </button>
+    </div>
 
-    </section>
+    <div class="modal">
+        <div class="img">
+            <div class="circulo-laranja">
+                <img src="img/Comidas/Lasanha.svg" alt="">
+            </div>
+        </div>
+        <div class="cont_quantity">
+            <div class="content">
+                <h4>Lasanha</h4>
+                <h3>8,00€</h3>
+            </div>
+            <div class="quantity">
+                <h5>Quantidade</h5>
+                <div class="quantidade">
+                <button class="btn-minus"><img src="img/minus.svg" alt=""></button>
+                <div class="valor-quantidade">1</div>
+                <button class="btn-plus"><img src="img/plus.svg" alt=""></button>
+                </div>
+            </div>
+        </div>
+        <div class="adicionar">
+            <button class="add">Adicionar</button>
+        </div>
+        <button class="fechar-modal">
+            <img src="img/close.svg" alt="">
+        </button>
+    </div>
+
+    <div class="modal">
+        <div class="img">
+            <div class="circulo-laranja">
+                <img src="img/Comidas/Pizza.svg" alt="">
+            </div>
+        </div>
+        <div class="cont_quantity">
+            <div class="content">
+                <h4>Pizza</h4>
+                <h3>12,00€</h3>
+            </div>
+            <div class="quantity">
+                <h5>Quantidade</h5>
+                <div class="quantidade">
+                <button class="btn-minus"><img src="img/minus.svg" alt=""></button>
+                <div class="valor-quantidade">1</div>
+                <button class="btn-plus"><img src="img/plus.svg" alt=""></button>
+                </div>
+            </div>
+        </div>
+        <div class="adicionar">
+            <button class="add">Adicionar</button>
+        </div>
+        <button class="fechar-modal">
+            <img src="img/close.svg" alt="">
+        </button>
+    </div> -->
 
     <script src="js/script.js"></script>
 </body>
+
 </html>

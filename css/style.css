@@ -426,6 +426,143 @@ body {
   margin: 0 auto;
 }
 
+.filtro {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  transition: 0.6s ease-in-out;
+  opacity: 0;
+  z-index: -1;
+}
+
+.modal {
+  position: fixed;
+  height: auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 0.6s ease-in-out;
+  z-index: 2;
+}
+.modal .fechar-modal {
+  width: 50px;
+  height: 50px;
+  background-color: #FFC301;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  top: -25px;
+  right: 25px;
+}
+.modal .fechar-modal img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.cont_quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cont_quantity h4 {
+  font-family: "Lato", sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.cont_quantity h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.quantity {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+.quantity h5 {
+  font-family: "Lato", sans-serif;
+  font-size: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.quantidade {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.adicionar {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+.adicionar .add {
+  border: none;
+  background-color: rgb(51, 51, 51);
+  color: white;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 1rem;
+  background-color: #333533;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.valor-quantidade {
+  border-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  font-family: "Lato", sans-serif;
+}
+
+.aberto {
+  opacity: 1;
+  top: 50%;
+  transition: 0.6s ease-in-out;
+}
+
+.btn-plus {
+  display: flex;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background-color: orangered;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20%;
+  background-color: #FFC301;
+}
+
+.btn-minus {
+  display: flex;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background-color: orangered;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20%;
+  background-color: #FFC301;
+}
+
 header .logo img {
   position: absolute;
   padding: 1.5rem;
@@ -436,15 +573,28 @@ header .logo img {
   font-size: 0.9rem;
   margin: 1rem;
 }
-.container-selecao .path {
+
+.path {
   display: flex;
 }
-.container-selecao .path img {
+.path img {
   transform: rotate(180deg);
   margin-right: 1rem;
+  display: none;
 }
-.container-selecao .path .antigo {
-  color: rgba(51, 53, 51, 0.29);
+.path h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  margin: 1rem;
+}
+.path .atual {
+  display: none;
+}
+.path .aparece {
+  display: block;
+}
+.path .produtos {
+  margin-left: 53.5rem;
 }
 
 .categoria {
@@ -538,6 +688,37 @@ header .logo img {
   padding: 1rem;
   box-shadow: 5px 5px 7px 1px rgba(0, 0, 0, 0.3);
 }
+.lista .produtos-aberto {
+  display: block;
+}
+.lista .produtos-aberto ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lista .produtos-aberto ul li .nome-produto-carrinho {
+  font-weight: bold;
+}
+.lista .produtos-aberto ul li .botoes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lista .produtos-aberto button {
+  background-color: #FFC301;
+  border-radius: 0.625rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: none;
+  cursor: pointer;
+  transition: 0.6s ease-in-out;
+}
+.lista .produtos-carrinho {
+  display: none;
+}
 
 .container-pagamento h2 {
   font-family: "Poppins", sans-serif;
@@ -584,5 +765,17 @@ header .logo img {
 }
 
 .cafetaria {
+  display: none;
+}
+
+.sandes {
+  display: none;
+}
+
+.alcoolicas {
+  display: none;
+}
+
+.sobremesas {
   display: none;
 }/*# sourceMappingURL=style.css.map */
