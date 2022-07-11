@@ -8,16 +8,18 @@ body {
     height: 100vh;
     top: 0;
     left: 0;
-    margin: 0 auto;
     background-image: url('../img/img-fundo.jpg');
     background-position: center;
     background-size: cover;
+    margin-left: 5rem;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .grid-2-colunas{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
+    grid-gap: 2rem;
     margin: 0 auto;
 }
 
@@ -30,57 +32,68 @@ body {
 
 // ESTILOS ESPECÍFICOS
 
-.logo {
-    img {
-        position: absolute;
-        padding: 1.5rem;
+header{
+    .logo {
+        img {
+            position: absolute;
+            padding: 1.5rem;
+        }
+    }
+
+}
+
+.container-selecao{
+    h2 {
+        font-family: $poppins;
+        font-size: 0.9rem;
+        margin: 1rem;
     }
 }
 
-.inicio {
-    .categoria{
-        background-color: white;
-        border-radius: 1.5rem;
-        width: 20rem;
-        height: 20rem;
+.categoria{
+    background-color: white;
+    border-radius: 1.5rem;
+    width: 18rem;
+    height: 18rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    cursor: pointer;
+    transition: 0.6s ease-in-out;
+    box-shadow: 5px 5px 7px 1px rgba($color: #000000, $alpha: 0.30);
+    .img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .titulo-categoria {
+        width: 18rem;
         display: flex;
         align-items: center;
         justify-content: space-around;
-        flex-direction: column;
-        cursor: pointer;
-        transition: 0.6s ease-in-out;
-        box-shadow: 5px 5px 7px 1px rgba($color: #000000, $alpha: 0.30);
-        .img {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        h3 {
+            font-family: $poppins;
+            font-weight: 800;
+            font-size: 1.5rem;
         }
-        .titulo-categoria {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            h3 {
-                font-family: $poppins;
-                font-weight: 800;
-            }
+    }
+    .icon{
+        width: 6.25rem;
+        height: 6.25rem;
+        background-color: $amarelo;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            width: 3.1rem;
+            height: 3.1rem;
         }
-        .icon{
-            width: 6.25rem;
-            height: 6.25rem;
-            background-color: $amarelo;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            img{
-                width: 3.1rem;
-                height: 3.1rem;
-            }
-        }
-        &:hover {
-            background-color: $amarelo;
-            color: white;
-        }
+    }
+    &:hover {
+        background-color: $amarelo;
+        color: white;
     }
 }
 
@@ -90,20 +103,28 @@ body {
     font-family: $lato;
     border-radius: 1.5rem;
     width: 20rem;
-    height: 30rem;
+    height: 28rem;
     padding: 1rem;
     box-shadow: 5px 5px 7px 1px rgba($color: #000000, $alpha: 0.30);
+}
+
+.container-pagamento {
+    h2{
+        font-family: $poppins;
+        font-size: 0.9rem;
+        margin: 1rem;
+    }
 }
 
 .pagamento {
     background-color: $amarelo;
     border-radius: 1.5rem;
-    width: 400px;
-    height: 126px;
+    width: 20rem;
+    height: 7.8rem;
     color: white;
     font-family: $poppins;
     padding: 1.3rem;
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 400;
     margin-top: 2rem;
 
@@ -113,16 +134,45 @@ body {
         justify-content: space-between;
         padding-top: 0.5rem;
         font-weight: 700;
-        font-size: 38px;
+        font-size: 2.3rem;
     }
 
     .btn-pagar {
         background-color: $preto;
         border-radius: 1rem;
-        width: 120px;
-        height: 65px;
+        width: 7.5rem;
+        height: 4rem;
         text-align: center;
         font-weight: 700;
-        font-size: 18px;
+        font-size: 1rem;
     }
+}
+
+.comidas{
+    display: none; 
+    .categoria{
+        .imagem{
+            width: 14rem;
+            height: auto;
+
+        }
+        .titulo-categoria{
+            height: 5rem;
+            img{
+                // width: 2rem;
+                // height: 2rem;
+                background-color: $amarelo;
+                border-radius: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: .5rem;
+            }
+        }
+        .titulo-item{
+            display: flex; 
+            align-self:  flex-start;
+            margin-bottom: -3rem;
+        }
+    }    
 }
