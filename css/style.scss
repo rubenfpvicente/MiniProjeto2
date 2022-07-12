@@ -14,6 +14,7 @@ body {
     margin-left: 5rem;
     overflow-y: hidden;
     overflow-x: hidden;
+    color: $preto;
 }
 
 .grid-2-colunas {
@@ -53,7 +54,7 @@ body {
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: 0.6s ease-in-out;
-    z-index: 2;
+    z-index: -2;
 
     .fechar-modal {
         width: 50px;
@@ -146,6 +147,7 @@ body {
     opacity: 1;
     top: 50%;
     transition: 0.6s ease-in-out;
+    z-index: 2;
 }
 
 .btn-plus {
@@ -211,15 +213,19 @@ header {
     }
 
     .atual {
-        display: none;
+        opacity: 0;
+        z-index: -2;
     }
 
     .aparece {
-        display: block;
-    }
+        img {
+            display: block !important;
+        }
 
-    .produtos {
-        margin-left: 53.5rem;
+        .atual {
+            opacity: 1;
+            z-index: 2;
+        }
     }
 }
 

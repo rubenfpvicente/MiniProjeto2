@@ -15,27 +15,32 @@ const sandes = document.querySelector('.sandes');
 const alcoolicas = document.querySelector('.alcoolicas');
 const sobremesas = document.querySelector('.sobremesas');
 const btnInicio = document.querySelector('.btn-back');
+const cat = document.querySelector('.antigo');
 const catAtual = document.querySelector('.atual');
 const abrirModal = document.querySelectorAll('.abrir-modal');
 const filtro = document.querySelector('.filtro');
 const modal = document.querySelectorAll('.modal');
 const fecharModal = document.querySelectorAll('.fechar-modal');
-// const btnMinus = document.querySelector('.btn-minus');
-// const btnPlus = document.querySelectorAll('.btn-plus');
-const adicionarProduto = document.querySelector('.add');
+const btnMinus = document.querySelectorAll('.btn-minus');
+const btnPlus = document.querySelectorAll('.btn-plus');
+let adicionarProduto = document.querySelectorAll('.add');
 const produto = document.querySelector('.produtos-carrinho');
-const nomeProduto = document.querySelector('.nome-produto');
+const nomeProduto = document.querySelectorAll('.nome-produto');
 const quantidadeProduto = document.querySelectorAll('.valor-quantidade');
-const precoProduto = document.querySelector('.preco-produto');
+const precoProduto = document.querySelectorAll('.preco-produto');
 const carrinhoVazio = document.querySelector('.carrinho-vazio');
 const precoPagamento = document.querySelector('.preco-pay');
 const btnPagar = document.querySelector('.btn-pagar');
+const editarProduto = document.querySelector('.editar-produto');
+const apagarProduto = document.querySelector('.apagar-produto');
 
 const mudarMenu = function (categoria) {
     menu.style.display = 'none';
     btnInicio.classList.add('aparece');
+    cat.style.opacity = 0.29;
+    catAtual.style.zIndex = 1;
+    catAtual.style.opacity = 1;
     categoria.style.display = 'block';
-    catAtual.textContent = categoria.textContent;
 };
 
 btnComidas.addEventListener('click', function () {
@@ -44,22 +49,27 @@ btnComidas.addEventListener('click', function () {
 
 btnBebidas.addEventListener('click', function () {
     mudarMenu(bebidas);
+    catAtual.textContent = 'Bebidas';
 });
 
 btnCafetaria.addEventListener('click', function () {
     mudarMenu(cafetaria);
+    catAtual.textContent = 'Cafetaria';
 });
 
 btnSandes.addEventListener('click', function () {
     mudarMenu(sandes);
+    catAtual.textContent = 'Sandes';
 });
 
 btnAlcoolicas.addEventListener('click', function () {
     mudarMenu(alcoolicas);
+    catAtual.textContent = 'Alcoolicas';
 });
 
 btnSobremesas.addEventListener('click', function () {
     mudarMenu(sobremesas);
+    catAtual.textContent = 'Sobremesas';
 });
 
 btnInicio.addEventListener('click', function () {
@@ -70,19 +80,33 @@ btnInicio.addEventListener('click', function () {
     sandes.style.display = 'none';
     alcoolicas.style.display = 'none';
     sobremesas.style.display = 'none';
+    btnInicio.classList.remove('aparece');
+    cat.style.opacity = 1;
+    catAtual.style.zIndex = -1;
+    catAtual.style.opacity = 0;
 });
 
 const mostraModal = function (elemento) {
     filtro.style.zIndex = 1;
     filtro.style.opacity = 1;
-    elemento.classList.toggle('aberto');
+    elemento.classList.add('aberto');
 };
 
 const escondeModal = function (elemento) {
     filtro.style.zIndex = -1;
     filtro.style.opacity = 0;
-    elemento.classList.toggle('aberto');
+    elemento.classList.remove('aberto');
 };
+
+const aumentar = function (elemento) {
+    elemento.textContent++;
+}
+
+const diminuir = function (elemento) {
+    if (elemento.textContent > 1) {
+        elemento.textContent--;
+    }
+}
 
 for (let i = 0; i < abrirModal.length; i++) {
     abrirModal[i].addEventListener('click', function () {
@@ -90,27 +114,15 @@ for (let i = 0; i < abrirModal.length; i++) {
     });
 };
 
-function diminuir() {
-    if (quantidadeProduto.textContent > 1) {
-        quantidadeProduto.textContent--;
-    }
-}
-
-window.onload = function () {
-    const btnMinus = document.querySelector('.btn-minus');
-    btnMinus.addEventListener('click', function () {
-        diminuir()
+for (let i = 0; i < btnPlus.length; i++) {
+    btnPlus[i].addEventListener('click', function () {
+        aumentar(quantidadeProduto[i]);
     });
-}
+};
 
-function aumentar() {
-    quantidadeProduto.textContent++;
-}
-
-window.onload = function () {
-    const btnPlus = document.querySelector('.btn-plus');
-    btnPlus.addEventListener('click', function () {
-        aumentar();
+for (let i = 0; i < btnMinus.length; i++) {
+    btnMinus[i].addEventListener('click', function () {
+        diminuir(quantidadeProduto[i]);
     });
 }
 
@@ -120,21 +132,19 @@ for (let i = 0; i < fecharModal.length; i++) {
     });
 };
 
-adicionarProduto.addEventListener('click', function () {
+const addProduto = function (nome, quantidade, preco) {
 
     produto.classList.add('produtos-aberto');
     produto.style.display = 'block';
+    const num = parseFloat(preco.textContent.replace(/,/g, '.'));
+    preco.value = num * quantidade.textContent;
+    const precoTotal = new Intl.NumberFormat().format(preco.value);
 
-    const str = precoProduto.textContent;
-    const num = parseFloat(str.replace(/,/g, '.'));
-    precoProduto.value = num * quantidadeProduto.textContent;
-    const precoTotal = new Intl.NumberFormat().format(precoProduto.value);
-    // adiciona o produto ao carrinho
     produto.innerHTML = `
     <ul>
         <li>
-            <div class="nome-produto-carrinho">${nomeProduto.textContent}</div>
-            <div class="quantidade-produto-carrinho">${quantidadeProduto.textContent}x</div>
+            <div class="nome-produto-carrinho">${nome.textContent}</div>
+            <div class="quantidade-produto-carrinho">${quantidade.textContent}x</div>
             <div class="preco-produto-carrinho">${precoTotal}€</div>
             <div class="botoes">
                 <button class="editar-produto"><img src="img/edit.svg" alt=""></button>
@@ -145,9 +155,13 @@ adicionarProduto.addEventListener('click', function () {
     `;
 
     carrinhoVazio.style.display = 'none';
-    precoPagamento.innerHTML = `
-        ${precoPagamento.value += precoTotal}
-        `;
+    precoPagamento.value += precoTotal.value
+}
 
+for (let i = 0; i < adicionarProduto.length; i++) {
+    adicionarProduto[i].addEventListener('click', function () {
+        addProduto(nomeProduto[i], quantidadeProduto[i], precoProduto[i]);
+    });
 
-})
+};
+
