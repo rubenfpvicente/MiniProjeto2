@@ -151,24 +151,33 @@ for (let i = 0; i < fecharModal.length; i++) {
     });
 };
 
+let carrinho = [];
+
 let addProduto = function (nome, quantidade, preco) {
+    let produto_list = {
+        nome: nome,
+        quantidade: quantidade,
+        preco: parseFloat(preco.replace(/,/g, '.'))
+    };
 
+    carrinho.push(produto_list);
+    console.log(carrinho);
+}
 
-    // TODO: Acho que precisa de um ciclo for
+let addCarrinho = function () {
+    for (let i = 0; i < carrinho.length; i++) {
+        produto.classList.add('produtos-aberto');
+        produto.style.display = 'block';
+        // let str = carrinho[i].preco;
+        // let num = parseFloat(str.replace(/,/g, '.'));
+        carrinho[i].preco *= carrinho[i].quantidade;
 
-
-    produto.classList.add('produtos-aberto');
-    produto.style.display = 'block';
-    let num = parseFloat(preco.textContent.replace(/,/g, '.'));
-    preco.value = num * quantidade.textContent;
-    let precoTotal = preco.value;
-
-    produto.innerHTML = `
+        produto.innerHTML = `
     <ul>
         <li>
-            <div class="nome-produto-carrinho" id="name-produto">${nome.textContent}</div>
-            <div class="quantidade-produto-carrinho" id="quantity-produto">${quantidade.textContent}x</div>
-            <div class="preco-produto-carrinho" id="value-produto">${euro.format(precoTotal)}</div>
+            <div class="nome-produto-carrinho" id="name-produto">${carrinho[i].nome}</div>
+            <div class="quantidade-produto-carrinho" id="quantity-produto">${carrinho[i].quantidade}x</div>
+            <div class="preco-produto-carrinho" id="value-produto">${euro.format(carrinho[i].preco)}</div>
             <div class="botoes" id="editar-produto">
                 <button class="editar-produto"><img src="img/edit.svg" alt=""></button>
                 <button class="apagar-produto" onclick="apagar();"><img src="img/trash-alt.svg" alt=""></button>  
@@ -176,17 +185,71 @@ let addProduto = function (nome, quantidade, preco) {
         </li>
     </ul>
     `;
+        carrinhoVazio.style.display = 'none';
+        precoPagamento.value += carrinho[i].preco;
 
-    carrinhoVazio.style.display = 'none';
-    precoPagamento.value += precoTotal.value;
+        if (precoPagamento != carrinho[i].preco) {
+            precoPagamento.textContent = euro.format(carrinho[i].preco);
+        } else {
+            precoPagamento.textContent = euro.format(carrinho[i].preco);
+        }
 
-    precoPagamento.textContent = euro.format(precoTotal);
+        let btnEditar = document.querySelectorAll('.editar-produto');
 
-    if (precoPagamento != precoTotal) {
-        precoPagamento.textContent = euro.format(precoTotal);
+        for (let i = 0; i < btnEditar.length; i++) {
+            btnEditar[i].addEventListener('click', function () {
+                mostraModal(modal[i]);
+            });
+        }
+
+        let btnApagar = document.querySelectorAll('.apagar-produto');
+
+        for (let i = 0; i < btnApagar.length; i++) {
+            btnApagar[i].addEventListener('click', function () {
+                apagar();
+            });
+        }
     }
-
 }
+
+
+
+for (let i = 0; i < adicionarProduto.length; i++) {
+    adicionarProduto[i].addEventListener('click', function () {
+        addProduto(nomeProduto[i].textContent, quantidadeProduto[i].textContent, precoProduto[i].textContent);
+        addCarrinho();
+
+    });
+};
+
+// let addProduto = function (nome, quantidade, preco) {
+//     let produto = {
+//         nome: nome,
+//         quantidade: quantidade,
+//         preco: preco
+//     };
+//     carrinho.push(produto);
+// }
+
+// for (let i = 0; i < adicionarProduto.length; i++) {
+//     adicionarProduto[i].addEventListener('click', function () {
+//         addProduto(nomeProduto[i].textContent, quantidadeProduto[i].textContent, precoProduto[i].textContent);
+//         produto.style.display = 'block';
+//         carrinhoVazio.style.display = 'none';
+//         precoPagamento.textContent = euro.format(carrinho.reduce(function (total, produto) {
+//             return total + parseFloat(produto.preco);
+//         }
+//             , 0));
+
+//     });
+// }
+
+//     
+
+
+
+let editarProduto = document.querySelector('.editar-produto');
+let apagarProduto = document.querySelector('.apagar-produto');
 
 function apagar() {
     // futuramente vai precisar de um for para ir buscar o nome ou id senão irá apagar tudo
@@ -198,50 +261,33 @@ function apagar() {
     name.textContent = "";
     value.textContent = "";
     edit.textContent = "";
-    carrinhoVazio.style.display = 'block';
-    precoPagamento.textContent = "0,00€";
+    carrinho.pop();
 }
 
-for (let i = 0; i < adicionarProduto.length; i++) {
-    adicionarProduto[i].addEventListener('click', function () {
-        addProduto(nomeProduto[i], quantidadeProduto[i], precoProduto[i]);
-    });
-};
+const btnConfirmar = document.querySelector('.btn-confirmar');
 
-let editarProduto = document.querySelector('.editar-produto');
-let apagarProduto = document.querySelector('.apagar-produto');
-
-
-// editarProduto.addEventListener('click', function () {
-//     editarProduto.classList.add('abrirModal');
-// });
-
-
-
-// TESTES --
-
-
-/* for (let i = 0; i < editarProduto.length; i++) {
-    editarProduto[i].addEventListener('click', function () {
-        alert('Editar produto');
-    });
-} */
-
-/* function editarProduct() {
-    for (let i = 0; i < editarProduto.length; i++) {
-            alert('Editar produto');
+btnConfirmar.addEventListener('click', function () {
+    menu.style.display = 'block';
+    comidas.style.display = 'none';
+    bebidas.style.display = 'none';
+    cafetaria.style.display = 'none';
+    sandes.style.display = 'none';
+    alcoolicas.style.display = 'none';
+    sobremesas.style.display = 'none';
+    btnInicio.classList.remove('aparece');
+    if (mediaQuery.matches) {
+        cat.style.opacity = 1;
+    } else {
+        cat.style.display = 'block';
     }
-} */
-
-/* editarProduto[i].addEventListener('click', function () {
-    editarProduct();
-});
- */
-
-/* apagarProduto.addEventListener('click', function () {
-    quantidade.textContent= 0;
-} );
- */
+    catAtual.style.zIndex = -1;
+    catAtual.style.opacity = 0;
+    produto.innerHTML = "";
+    carrinhoVazio.style.display = 'block';
+    precoPagamento.textContent = "0,00€";
+    carrinho = [];
+}
+);
 
 const expandBtn = document.querySelector('.expand-btn');
 const lista = document.querySelector('.expand');
