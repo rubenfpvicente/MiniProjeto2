@@ -1,5 +1,11 @@
 'use strict';
 
+
+
+// TODO: Mudar const para let
+// FIXME: Acho que vai ser preciso criar uma lista
+
+
 // Declare variables
 const btnComidas = document.querySelector('.btn-comida');
 const btnBebidas = document.querySelector('.btn-bebida');
@@ -31,8 +37,12 @@ const precoProduto = document.querySelectorAll('.preco-produto');
 const carrinhoVazio = document.querySelector('.carrinho-vazio');
 const precoPagamento = document.querySelector('.preco-pay');
 const btnPagar = document.querySelector('.btn-pagar');
-const editarProduto = document.querySelector('.editar-produto');
-const apagarProduto = document.querySelector('.apagar-produto');
+
+// FIXME: Isto vai fazer a conversão para euros e adicionar o simbolo €
+let euro = Intl.NumberFormat("pt-PT", {
+    style: "currency",
+    currency: "EUR",
+});
 
 const mudarMenu = function (categoria) {
     menu.style.display = 'none';
@@ -132,36 +142,94 @@ for (let i = 0; i < fecharModal.length; i++) {
     });
 };
 
-const addProduto = function (nome, quantidade, preco) {
+let addProduto = function (nome, quantidade, preco) {
+
+
+    // TODO: Acho que precisa de um ciclo for
+
 
     produto.classList.add('produtos-aberto');
     produto.style.display = 'block';
-    const num = parseFloat(preco.textContent.replace(/,/g, '.'));
+    let num = parseFloat(preco.textContent.replace(/,/g, '.'));
     preco.value = num * quantidade.textContent;
-    const precoTotal = new Intl.NumberFormat().format(preco.value);
+    let precoTotal = new Intl.NumberFormat().format(preco.value);
 
     produto.innerHTML = `
     <ul>
         <li>
-            <div class="nome-produto-carrinho">${nome.textContent}</div>
-            <div class="quantidade-produto-carrinho">${quantidade.textContent}x</div>
-            <div class="preco-produto-carrinho">${precoTotal}€</div>
-            <div class="botoes">
+            <div class="nome-produto-carrinho" id="name-produto">${nome.textContent}</div>
+            <div class="quantidade-produto-carrinho" id="quantity-produto">${quantidade.textContent}x</div>
+            <div class="preco-produto-carrinho" id="value-produto">${euro.format(precoTotal)}</div>
+            <div class="botoes" id="editar-produto">
                 <button class="editar-produto"><img src="img/edit.svg" alt=""></button>
-                <button class="apagar-produto"><img src="img/trash-alt.svg" alt=""></button>
+                <button class="apagar-produto" onclick="apagar();"><img src="img/trash-alt.svg" alt=""></button>  
             </div>
         </li>
     </ul>
     `;
+        // Linha 163 tem um onclick  
 
     carrinhoVazio.style.display = 'none';
-    precoPagamento.value += precoTotal.value
+    precoPagamento.value += precoTotal.value;
+        /* let precoTotalPagamento = new Intl.NumberFormat().format(precoTotal.value); */   //(Alterei para precototal, 
+        // Funciona sem isto, ou seja isto nao está fazendo nada)
+    precoPagamento.textContent = euro.format(precoTotal);
+
+    if (precoPagamento != precoTotal) {
+        precoPagamento.textContent = euro.format(precoTotal);
+    }
+
+}
+
+function apagar() {
+        // futuramente vai precisar de um for para ir buscar o nome ou id senão irá apagar tudo
+    let quantity = document.querySelector("#quantity-produto");
+    let name = document.querySelector("#name-produto");
+    let value = document.querySelector("#value-produto");
+    let edit = document.querySelector("#editar-produto");
+    quantity.textContent = "";
+    name.textContent = "";
+    value.textContent = "";
+    edit.textContent = "";
 }
 
 for (let i = 0; i < adicionarProduto.length; i++) {
     adicionarProduto[i].addEventListener('click', function () {
         addProduto(nomeProduto[i], quantidadeProduto[i], precoProduto[i]);
     });
-
 };
 
+let editarProduto = document.querySelector('.editar-produto');
+let apagarProduto = document.querySelector('.apagar-produto');
+
+
+editarProduto.addEventListener('click', function () {
+    editarProduto.classList.add('abrirModal');
+});
+
+
+
+// TESTES --
+
+
+/* for (let i = 0; i < editarProduto.length; i++) {
+    editarProduto[i].addEventListener('click', function () {
+        alert('Editar produto');
+    });
+} */
+
+/* function editarProduct() {
+    for (let i = 0; i < editarProduto.length; i++) {
+            alert('Editar produto');
+    }
+} */
+
+/* editarProduto[i].addEventListener('click', function () {
+    editarProduct();
+});
+ */
+
+/* apagarProduto.addEventListener('click', function () {
+    quantidade.textContent= 0;
+} );
+ */
