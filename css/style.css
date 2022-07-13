@@ -390,6 +390,7 @@ body {
   background-image: url("../img/img-fundo.jpg");
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
   margin-left: 5rem;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -712,6 +713,9 @@ header .logo img {
   font-size: 0.9rem;
   margin: 1rem;
 }
+.container-pagamento .expand-btn {
+  display: none;
+}
 
 .pagamento {
   background-color: #FFC301;
@@ -765,4 +769,147 @@ header .logo img {
 
 .sobremesas {
   display: none;
+}
+
+.confirmar-pagamento {
+  height: 35rem;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+.confirmar-pagamento h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.confirmar-pagamento .produtos-carrinho {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  margin-top: 1rem;
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+}
+.confirmar-pagamento .total h4 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  color: #FFC301;
+}
+.confirmar-pagamento .total .preco-pay {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.confirmar-pagamento .btn-pagar {
+  background-color: #333533;
+  color: white;
+  border-radius: 1rem;
+  width: 15rem;
+  height: 4rem;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+@media all and (max-width: 768px) {
+  body {
+    overflow-y: scroll;
+  }
+  h3 {
+    font-weight: 400;
+  }
+  .grid-2-colunas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: -3rem;
+  }
+  .grid-3-colunas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .categoria {
+    width: 9rem;
+    height: 9rem;
+  }
+  .categoria .titulo-categoria {
+    width: 9rem;
+  }
+  .categoria .titulo-categoria h3 {
+    font-size: 1rem;
+  }
+  .categoria .icon {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  .categoria .icon img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .categoria .img-item {
+    max-width: 60%;
+    max-height: 50%;
+  }
+  .categoria .info-item {
+    width: 9rem;
+    gap: -1rem;
+  }
+  .categoria .info-item h3 {
+    font-size: 0.9rem;
+  }
+  .categoria .info-item img {
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+  }
+  .categoria .titulo-item {
+    max-height: 2rem;
+    gap: -1rem;
+  }
+  .categoria .titulo-item p {
+    font-size: 0.8rem;
+  }
+  .expand {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+    border: 1px solid #333533;
+    position: fixed;
+    margin-top: -3rem;
+    margin-left: -10rem;
+    z-index: 2;
+  }
+  .expand .produtos {
+    display: none;
+  }
+  .expand .lista {
+    height: 0;
+    overflow: hidden;
+    padding: 0 6rem;
+  }
+  .expand .expand-btn {
+    display: block;
+    background-color: transparent;
+    border: none;
+    padding: 1rem;
+    transition: 0.3s ease-in-out;
+  }
+  .expand .expand-btn.aberto {
+    transform: rotate(180deg);
+  }
+  .pagamento {
+    position: fixed;
+    margin-top: 0.5rem;
+    margin-left: -10rem;
+    z-index: 1;
+  }
 }/*# sourceMappingURL=style.css.map */

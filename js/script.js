@@ -37,6 +37,7 @@ const precoProduto = document.querySelectorAll('.preco-produto');
 const carrinhoVazio = document.querySelector('.carrinho-vazio');
 const precoPagamento = document.querySelector('.preco-pay');
 const btnPagar = document.querySelector('.btn-pagar');
+const mediaQuery = window.matchMedia('(min-width: 768px)')
 
 // FIXME: Isto vai fazer a conversão para euros e adicionar o simbolo €
 let euro = Intl.NumberFormat("pt-PT", {
@@ -47,7 +48,11 @@ let euro = Intl.NumberFormat("pt-PT", {
 const mudarMenu = function (categoria) {
     menu.style.display = 'none';
     btnInicio.classList.add('aparece');
-    cat.style.opacity = 0.29;
+    if (mediaQuery.matches) {
+        cat.style.opacity = 0.29;
+    } else {
+        cat.style.display = 'none';
+    }
     catAtual.style.zIndex = 1;
     catAtual.style.opacity = 1;
     categoria.style.display = 'block';
@@ -91,7 +96,11 @@ btnInicio.addEventListener('click', function () {
     alcoolicas.style.display = 'none';
     sobremesas.style.display = 'none';
     btnInicio.classList.remove('aparece');
-    cat.style.opacity = 1;
+    if (mediaQuery.matches) {
+        cat.style.opacity = 1;
+    } else {
+        cat.style.display = 'block';
+    }
     catAtual.style.zIndex = -1;
     catAtual.style.opacity = 0;
 });
@@ -152,7 +161,7 @@ let addProduto = function (nome, quantidade, preco) {
     produto.style.display = 'block';
     let num = parseFloat(preco.textContent.replace(/,/g, '.'));
     preco.value = num * quantidade.textContent;
-    let precoTotal = new Intl.NumberFormat().format(preco.value);
+    let precoTotal = preco.value;
 
     produto.innerHTML = `
     <ul>
@@ -167,12 +176,10 @@ let addProduto = function (nome, quantidade, preco) {
         </li>
     </ul>
     `;
-        // Linha 163 tem um onclick  
 
     carrinhoVazio.style.display = 'none';
     precoPagamento.value += precoTotal.value;
-        /* let precoTotalPagamento = new Intl.NumberFormat().format(precoTotal.value); */   //(Alterei para precototal, 
-        // Funciona sem isto, ou seja isto nao está fazendo nada)
+
     precoPagamento.textContent = euro.format(precoTotal);
 
     if (precoPagamento != precoTotal) {
@@ -182,7 +189,7 @@ let addProduto = function (nome, quantidade, preco) {
 }
 
 function apagar() {
-        // futuramente vai precisar de um for para ir buscar o nome ou id senão irá apagar tudo
+    // futuramente vai precisar de um for para ir buscar o nome ou id senão irá apagar tudo
     let quantity = document.querySelector("#quantity-produto");
     let name = document.querySelector("#name-produto");
     let value = document.querySelector("#value-produto");
@@ -191,6 +198,8 @@ function apagar() {
     name.textContent = "";
     value.textContent = "";
     edit.textContent = "";
+    carrinhoVazio.style.display = 'block';
+    precoPagamento.textContent = "0,00€";
 }
 
 for (let i = 0; i < adicionarProduto.length; i++) {
@@ -203,9 +212,9 @@ let editarProduto = document.querySelector('.editar-produto');
 let apagarProduto = document.querySelector('.apagar-produto');
 
 
-editarProduto.addEventListener('click', function () {
-    editarProduto.classList.add('abrirModal');
-});
+// editarProduto.addEventListener('click', function () {
+//     editarProduto.classList.add('abrirModal');
+// });
 
 
 
@@ -233,3 +242,12 @@ editarProduto.addEventListener('click', function () {
     quantidade.textContent= 0;
 } );
  */
+
+const expandBtn = document.querySelector('.expand-btn');
+const lista = document.querySelector('.expand');
+
+expandBtn.addEventListener('click', () => {
+    lista.classList.toggle('lista');
+    expandBtn.classList.toggle('aberto');
+
+});

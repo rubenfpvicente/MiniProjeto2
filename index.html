@@ -354,62 +354,63 @@
                     </div>
                 </div>
 
-                <div class="grid-2-colunas sobremesas">
-                    <div class="container-selecao">
+                <div class="container-selecao sobremesas">
 
-                        <div class="grid-3-colunas">
-                            <div class="categoria abrir-modal">
-                                <img src="img/sobremesas/gelado.svg" alt="" class="img-item">
-                                <div class="info-item">
-                                    <div class="titulo-item">
-                                        <p>Gelado</p><br>
-                                        <h3>1,50€</h3>
-                                    </div>
-                                    <button>
-                                        <img src="img/plus.svg" alt="">
-                                    </button>
+                    <div class="grid-3-colunas">
+                        <div class="categoria abrir-modal">
+                            <img src="img/sobremesas/gelado.svg" alt="" class="img-item">
+                            <div class="info-item">
+                                <div class="titulo-item">
+                                    <p>Gelado</p><br>
+                                    <h3>1,50€</h3>
                                 </div>
+                                <button>
+                                    <img src="img/plus.svg" alt="">
+                                </button>
                             </div>
-                            <div class="categoria abrir-modal">
-                                <img src="img/sobremesas/mousse.svg" alt="" class="img-item">
-                                <div class="info-item">
-                                    <div class="titulo-item">
-                                        <p>Mousse de chocolate</p><br>
-                                        <h3>3,00€</h3>
-                                    </div>
-                                    <button>
-                                        <img src="img/plus.svg" alt="">
-                                    </button>
+                        </div>
+                        <div class="categoria abrir-modal">
+                            <img src="img/sobremesas/mousse.svg" alt="" class="img-item">
+                            <div class="info-item">
+                                <div class="titulo-item">
+                                    <p>Mousse de chocolate</p><br>
+                                    <h3>3,00€</h3>
                                 </div>
+                                <button>
+                                    <img src="img/plus.svg" alt="">
+                                </button>
                             </div>
-                            <div class="categoria abrir-modal">
-                                <img src="img/sobremesas/bolo.svg" alt="" class="img-item">
-                                <div class="info-item">
-                                    <div class="titulo-item">
-                                        <p>Bolo de chocolate</p><br>
-                                        <h3>3,20€</h3>
-                                    </div>
-                                    <button>
-                                        <img src="img/plus.svg" alt="">
-                                    </button>
+                        </div>
+                        <div class="categoria abrir-modal">
+                            <img src="img/sobremesas/bolo.svg" alt="" class="img-item">
+                            <div class="info-item">
+                                <div class="titulo-item">
+                                    <p>Bolo de chocolate</p><br>
+                                    <h3>3,20€</h3>
                                 </div>
+                                <button>
+                                    <img src="img/plus.svg" alt="">
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="container-pagamento">
-                <h2 class="produtos">Lista de produtos</h2>
-                <div class="lista">
-                    <h3 class="carrinho-vazio">Nenhum produto selecionado</h3>
-                    <div class="produtos-carrinho">
+                <div class="expand">
+                    <h2 class="produtos">Lista de produtos</h2>
+                    <button class="expand-btn"><img src="img/chevron-up.svg" alt=""></button>
+                    <div class="lista">
+                        <h3 class="carrinho-vazio">Nenhum produto selecionado</h3>
+                        <div class="produtos-carrinho fechado">
+                        </div>
                     </div>
                 </div>
                 <div class="pagamento">
                     <h3>total</h3>
                     <div class="preco-pagar">
-                        <div class="preco-pay" id="preco-pay">0.00€</div>
-                        <button class="btn-pagar">Pagar</button>
+                        <div class="preco-pay" id="preco-pay">0,00€</div>
+                        <button class="btn-pagar abrir-modal">Pagar</button>
                     </div>
                 </div>
             </div>
@@ -1056,6 +1057,24 @@
         <button class="fechar-modal">
             <img src="img/close.svg" alt="">
         </button>
+    </div>
+
+    <div class="modal">
+        <div class="confirmar-pagamento">
+            <h2>Conta</h2>
+            <div class="produtos-carrinho fechado">
+            </div>
+            <div class="total">
+                <h4>total</h4>
+                <div class="preco-pay" id="preco-pay">
+                    0,00€
+                </div>
+            </div>
+            <button class="btn-pagar abrir-modal">Confirmar pagamento</button>
+            <button class="fechar-modal">
+                <img src="img/close.svg" alt="">
+            </button>
+        </div>
     </div>
 
     <script src="js/script.js"></script>

@@ -11,6 +11,7 @@ body {
     background-image: url('../img/img-fundo.jpg');
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     margin-left: 5rem;
     overflow-y: hidden;
     overflow-x: hidden;
@@ -378,7 +379,13 @@ header {
         font-size: 0.9rem;
         margin: 1rem;
     }
+
+    .expand-btn {
+        display: none;
+    }
 }
+
+
 
 .pagamento {
     background-color: $amarelo;
@@ -436,4 +443,176 @@ header {
     display: none;
 }
 
+.confirmar-pagamento {
+    height: 35rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+
+
+    h2 {
+        font-family: $poppins;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .produtos-carrinho {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        margin-top: 1rem;
+        font-family: $lato;
+        font-size: 1rem;
+    }
+
+    .total {
+        h4 {
+            font-family: $poppins;
+            font-size: 1.2rem;
+            color: $amarelo;
+        }
+
+        .preco-pay {
+            font-family: $poppins;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+
+    .btn-pagar {
+        background-color: $preto;
+        color: white;
+        border-radius: 1rem;
+        width: 15rem;
+        height: 4rem;
+        text-align: center;
+        font-family: $poppins;
+        font-weight: 700;
+        font-size: 1rem;
+    }
+}
+
 //responsive mobile
+
+@media all and (max-width: 768px) {
+    body {
+        overflow-y: scroll;
+    }
+
+    h3 {
+        font-weight: 400;
+    }
+
+    .grid-2-colunas {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: -3rem;
+    }
+
+    .grid-3-colunas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .inicio {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .categoria {
+        width: 9rem;
+        height: 9rem;
+
+        .titulo-categoria {
+            width: 9rem;
+
+            h3 {
+                font-size: 1rem;
+            }
+        }
+
+        .icon {
+            width: 4.5rem;
+            height: 4.5rem;
+
+            img {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+
+        .img-item {
+            max-width: 60%;
+            max-height: 50%;
+        }
+
+        .info-item {
+            width: 9rem;
+            gap: -1rem;
+
+            h3 {
+                font-size: 0.9rem;
+            }
+
+            img {
+                border-radius: 0.25rem;
+                padding: 0.25rem;
+            }
+        }
+
+        .titulo-item {
+            max-height: 2rem;
+            gap: -1rem;
+
+            p {
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+    .expand {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 1rem;
+        border: 1px solid $preto;
+        position: fixed;
+        margin-top: -3rem;
+        margin-left: -10rem;
+        z-index: 2;
+
+        .produtos {
+            display: none;
+        }
+
+        .lista {
+            height: 0;
+            overflow: hidden;
+            padding: 0 6rem;
+        }
+
+        .expand-btn {
+            display: block;
+            background-color: transparent;
+            border: none;
+            padding: 1rem;
+            transition: 0.3s ease-in-out;
+        }
+
+        .expand-btn.aberto {
+            transform: rotate(180deg);
+        }
+    }
+
+    .pagamento {
+        position: fixed;
+        margin-top: .5rem;
+        margin-left: -10rem;
+        z-index: 1;
+    }
+}
